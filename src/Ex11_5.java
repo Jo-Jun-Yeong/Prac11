@@ -1,14 +1,12 @@
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.Iterator;
 
 //다음에 제시된 Student클래스가 Comparable인터페이스를 구현하도록 변경해서 
 //이름(name)이 기본 정렬기준이 되도록 하시오.
 
-interface Comparable{
-	
-	
-}
+
 
 
 class Student implements Comparable{
@@ -45,11 +43,27 @@ class Student implements Comparable{
 		if(a1 instanceof Comparable && a2 instanceof Comparable) {
 			Comparable c1 = (Comparable)a1;
 			Comparable c2 = (Comparable)a2;
-			  
+			  return c1.compareTo(c2)*(-1);
 		}
 	
-	return   1;
+	return   -1;
 }
+	
+//	public int compareTo(Student student) { 
+//		return this.name.compareTo(student.name); 
+//	}
+
+	public int compareTo(Object o) { 
+		if(o instanceof Student) {
+		Student tmp = (Student)o;
+		
+		return name.compareTo(tmp.name);//String클래스의compareTo()를 호출
+		}	else{
+			return -1; 
+			}
+		}
+
+	//모르겠음
 
 }
 
